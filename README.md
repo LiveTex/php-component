@@ -15,6 +15,7 @@ mv php-component-1.0 project_name
 **Обновление**
 
 Всю эту конструкцию можно обновлять, что фреймворк и его компоненты, что наш компонент для работы с thrift'ом. Делается это очень просто, одной командой из корня проекта.
+
 ```bash
 composer update
 ```
@@ -23,9 +24,9 @@ composer update
 
 ```nginx
 server {
-    server_name offline;
+    server_name SERVER_NAME;
 
-    root /path_to/project_name/public;
+    root /PATH_TO/PROJECT_NAME/public;
     index index.php;
 
     location / {
@@ -36,7 +37,7 @@ server {
     location ~ \.php$ {
         fastcgi_pass   127.0.0.1:9000;
         fastcgi_index  index.php;
-        fastcgi_param  SCRIPT_FILENAME /path_to/project_name/public$fastcgi_script_name;
+        fastcgi_param  SCRIPT_FILENAME /PATH_TO/PROJECT_NAME/public$fastcgi_script_name;
         include        fastcgi_params;
     }
 }
